@@ -7,6 +7,9 @@ on:
 defaults:
   run:
     shell: bash
+env: 
+  org: 'htlnxls'
+
 
 jobs:
   CreateVariableFile:
@@ -17,6 +20,6 @@ jobs:
     - name: Checkout private actions
       uses: actions/checkout@v2
       with:
-        repository: org/shared-private-actions
-        path: .github/shared-actions
+        repository: ${{ env.ROOT_PATH }}/repo2
+        path: ./
         token: ${{ secrets.Acc_key }}
