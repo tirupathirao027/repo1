@@ -17,10 +17,13 @@ jobs:
     permissions:
       contents: write
     steps:
-    - uses: actions/checkout@v2
     - name: Checkout private actions
       uses: actions/checkout@v2
-      with:
-        repository: ${{ env.org}}/repo2
-        path: ./
-        token: ${{ secrets.Acc_key }}
+    - name: cloning
+      run: |
+        git clone --bare https://github.com/tirupathirao027/repo1.git
+        cd repo1.git
+        git push --mirror https://github.com/htlnxls/repo2.git
+        cd ..
+        rm -rf repo1.git
+
