@@ -1,0 +1,18 @@
+name: copyFilesfromRepo
+
+on:
+  workflow_dispatch:
+  
+  
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  CreateVariableFile:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
