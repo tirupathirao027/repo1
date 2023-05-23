@@ -18,12 +18,9 @@ jobs:
       contents: write
     steps:
     - name: Checkout private actions
-      uses: actions/checkout@v2
-    - name: cloning
-      run: |
-        git clone --bare https://github.com/tirupathirao027/repo1.git
-        cd repo1.git
-        git push --mirror https://github.com/htlnxls/repo2.git
-        cd ..
-        rm -rf repo1.git
+    - uses: actions/checkout@v3
+      with:
+        repository: '[htlnxls]/[repo2]'
+        path: []
+        token: ${{ secrets.Acc_key }}
 
