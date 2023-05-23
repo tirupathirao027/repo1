@@ -12,9 +12,9 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
       - name: Check out my other private repo
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         with:
           repository: htlnxls/repo2
           token: ${{ secrets.ACC_KEY }}
