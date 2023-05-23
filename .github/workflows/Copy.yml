@@ -20,6 +20,6 @@ jobs:
     - name: Checkout private actions
     - uses: actions/checkout@v3
       with:
-        repository: '[htlnxls]/[repo2]'
+        repository: htlnxls/repo2
         token: ${{ secrets.Acc_key }}
 
