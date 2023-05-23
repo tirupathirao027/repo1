@@ -20,6 +20,6 @@ jobs:
     - name: Checkout private actions
       uses: actions/checkout@v2
       with:
-        repository: ${{ env.ROOT_PATH }}/repo2
+        repository: ${{ env.org}}/repo2
         path: ./
         token: ${{ secrets.Acc_key }}
