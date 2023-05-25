@@ -13,8 +13,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Check out my other private repo
-        uses: actions/checkout@v2
-        with:
-          repository: htlnxls/repo2
-          token: ${{ secrets.ACC_KEY }}
+      - name: store variable
+        id: vars
+        run: |
+          $sol_name = "variable testing" 
+           echo test="$sol_name" >> $GITHUB_ENV
+      - name: fetch var
+        run: |
+          echo "${{ env.test}}"
+        
+
