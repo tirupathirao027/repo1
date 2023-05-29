@@ -7,7 +7,7 @@ on:
   
 jobs:
   job01:
-    runs-on: ubuntu-latest
+    runs-on: Windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
