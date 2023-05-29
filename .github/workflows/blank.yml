@@ -9,29 +9,18 @@ jobs:
   job01:
     name: Job 01
     runs-on: ubuntu-latest
-    outputs:
-      run_rest_jobs: ${{ steps.set_output.outputs.run_jobs }}
-    steps:
+     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 2
       - name: git diff and set output
         id: set_output
         run: |
-          codeChanges="only within certain files"
-          if [[$codeChanges == "only within certain files"]]; then
-            echo "::set-output name=run_jobs::true"
-          else
-            echo "::set-output name=run_jobs::false"
-          fi
+          $f="success"
+          echo "test=$f" >> $GITHUB_OUTPUT
+       - name: testing
+         run: |
+           echo "run the rest jobs = ${{ steps.set_output.outputs.test }}"
+          
 
-  job02:
-    name: Job 02
-    needs: [job01]
-    if: needs.job01.outputs.run_rest_jobs == 'true'
-    runs-on: ubuntu-latest
-    steps:
-      - name: the rest jobs
-        run: echo "run the rest jobs"
 
+ 
