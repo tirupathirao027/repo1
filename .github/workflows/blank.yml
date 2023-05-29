@@ -7,9 +7,8 @@ on:
   
 jobs:
   job01:
-    name: Job 01
     runs-on: ubuntu-latest
-     steps:
+    steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: git diff and set output
@@ -17,9 +16,9 @@ jobs:
         run: |
           $f="success"
           echo "test=$f" >> $GITHUB_OUTPUT
-       - name: testing
-         run: |
-           echo "run the rest jobs = ${{ steps.set_output.outputs.test }}"
+      - name: testing
+        run: |
+          echo "run the rest jobs = ${{ steps.set_output.outputs.test }}"
           
 
 
