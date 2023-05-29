@@ -7,7 +7,7 @@ on:
   
 jobs:
   job01:
-    runs-on: Windows-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -18,7 +18,8 @@ jobs:
           echo "test=$f" >> $GITHUB_OUTPUT
       - name: testing
         run: |
-          echo "run the rest jobs = ${{ steps.set_output.outputs.test }}"
+          $tt=${{ steps.set_output.outputs.test }}
+          $tt
           
 
 
