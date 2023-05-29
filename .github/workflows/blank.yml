@@ -15,10 +15,10 @@ jobs:
         id: set_output
         run: |
           $f="success"
-          echo "test=$f" >> $GITHUB_OUTPUT
+          echo "test=$f" >> $GITHUB_ENV
       - name: testing
         run: |
-          $tt=${{ steps.set_output.outputs.test }}
+          $tt='${{ env.test }}'
           $tt
           
 
