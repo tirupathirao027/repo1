@@ -15,11 +15,10 @@ jobs:
         id: set_output
         run: |
           $f="success"
-          echo "test=$f" >> $GITHUB_ENV
+          echo "TERMINUS_RELEASE=$f" >> $GITHUB_ENV
       - name: testing
         run: |
-          $tt='${{ env.test }}'
-          $tt
+          $TERMINUS_RELEASE
           
 
 
