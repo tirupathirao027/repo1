@@ -18,7 +18,7 @@ jobs:
           echo "TERMINUS_RELEASE=$f" >> $GITHUB_ENV
       - name: testing
         run: |
-          $TERMINUS_RELEASE
+          write-output "${{env.TERMINUS_RELEASE}}"
           
 
 
