@@ -15,15 +15,11 @@ jobs:
         id: set_output
         run: |
           $f="success"
-          write-output "TERMINUS_RELEASE=$f" >> $GITHUB_OUTPUT
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
-        with:
-          title: ${{ steps.set_output.outputs.TERMINUS_RELEASE }}
+          write-output "TERMINUS_RELEASE=$f" >> $GITHUB_ENV
 
       - name: testing
         run: |
-          write-output "${{env.title}}"
+          write-output "${{env.TERMINUS_RELEASE}}"
 
           
           
