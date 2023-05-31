@@ -15,7 +15,7 @@ jobs:
         id: set_output
         run: |
           $f="success"
-          echo "TERMINUS_RELEASE=$f" >> $GITHUB_OUTPUT
+          write-output "TERMINUS_RELEASE=$f" >> $GITHUB_OUTPUT
       - name: testing
         run: |
           write-output "${{steps.set_output.outputs.TERMINUS_RELEASE}}"
