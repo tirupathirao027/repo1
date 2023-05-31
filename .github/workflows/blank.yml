@@ -19,7 +19,9 @@ jobs:
 
       - name: testing
         run: |
-          write-output "${{env.TERMINUS_RELEASE}}"
+          write-output $test
+        env:
+          test: ${{ env.TERMINUS_RELEASE }}
 
           
           
