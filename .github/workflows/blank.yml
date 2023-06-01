@@ -17,7 +17,7 @@ jobs:
         run: echo "test=hello" >> "$GITHUB_OUTPUT"
       - name: teettttt
         env:
-          FINAL: ${{steps.step1.outputs.output1}}
+          FINAL: ${{needs.job1.outputs.output1}}
         run: echo "{{env.FINAL }}"
           
           
