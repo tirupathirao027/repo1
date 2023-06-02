@@ -13,7 +13,9 @@ jobs:
       output2: ${{ steps.step2.outputs.test }}
     steps:
       - id: step1
-        run: echo test=hello >> $env:GITHUB_OUTPUT
+        run: |
+          write-output "testing code"
+          echo test=hello >> $env:GITHUB_OUTPUT
       - id: step2
         run: echo test=world >> $env:GITHUB_OUTPUT
       - name: testing
