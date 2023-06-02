@@ -14,9 +14,9 @@ jobs:
       output2: ${{ steps.step2.outputs.test }}
     steps:
       - id: step1
-        run: write-output "test=hello" >> "$GITHUB_OUTPUT"
+        run: echo test=hello >> $env:GITHUB_OUTPUT
       - id: step2
-        run: write-output "test=world" >> "$GITHUB_OUTPUT"
+        run: echo test=world >> $env:GITHUB_OUTPUT
   job2:
     runs-on: [windows-latest]
     needs: job1
@@ -24,4 +24,4 @@ jobs:
       - env:
           OUTPUT1: ${{needs.job1.outputs.output1}}
           OUTPUT2: ${{needs.job1.outputs.output2}}
-        run: write-output "$OUTPUT1 $OUTPUT2"
+        run: echo "$OUTPUT1 $OUTPUT2"
