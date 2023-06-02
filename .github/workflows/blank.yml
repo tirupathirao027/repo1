@@ -16,6 +16,9 @@ jobs:
         run: echo test=hello >> $env:GITHUB_OUTPUT
       - id: step2
         run: echo test=world >> $env:GITHUB_OUTPUT
+      - name: testing
+        run: |
+          write-output ${{steps.step2.outputs.test}}
   job2:
     runs-on: [windows-latest]
     needs: job1
