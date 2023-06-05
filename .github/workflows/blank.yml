@@ -28,7 +28,7 @@ jobs:
     needs: job1
     steps:
       - id: step3
-        run: echo test3=world v.3 >> $env:GITHUB_OUTPUT
+        run: echo test3="world 3" >> $env:GITHUB_OUTPUT
       - name: testing step3
         run: |
           write-output ${{ steps.step3.outputs.test3 }}
