@@ -1,0 +1,17 @@
+name: copy
+
+on: [push]
+  
+  
+  
+jobs:
+  job1:
+    runs-on:  [windows-latest]
+    steps:
+      - name: te
+        id: step1
+        run: |
+          curl -i -X PUT -H ‘Authorization: token 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’ -d ‘{“message”: “uploading a sample pdf”, “content”:”./TEST/test1.txt”}’ https://api.github.com/repos/tirupathirao027/repo2/contents/sample.txt
+
+
+          
