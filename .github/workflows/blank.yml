@@ -23,7 +23,13 @@ jobs:
           write-output ${{steps.step1.outputs.test}}
   job2:
     runs-on: [windows-latest]
+    outputs:
+      out3: ${{ steps.step3.outputs.test3 }}
     needs: job1
     steps:
-       - run: |
-          write-output ${{needs.job1.outputs.output1}}
+      - id: step3
+        run: echo test3=world v.3 >> $env:GITHUB_OUTPUT
+      - name: testing step3
+        run: |
+          write-output ${{ steps.step3.outputs.test3 }}
+          
