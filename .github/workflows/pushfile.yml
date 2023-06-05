@@ -11,7 +11,8 @@ jobs:
       - name: test
         id: step1
         run: |
-          curl -i -X PUT -H ‘Authorization: Bearer token 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’ -d ‘{“message”: “uploading a sample pdf”, “content”:”./TEST/test1.txt”}’ https://api.github.com/repos/tirupathirao027/repo2/contents/sample.txt
+          $content = base64.encode(.\TEST\test1.txt)
+          curl -i -X PUT -H ‘Authorization: Bearer token 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’ -d ‘{“message”: “uploading a sample pdf”, “content”:”$content”}’ https://api.github.com/repos/tirupathirao027/repo2/contents/sample.txt
 
 
           
