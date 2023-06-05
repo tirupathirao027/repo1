@@ -7,6 +7,6 @@ jobs:
   build-and-test:
     permissions:
       id-token: write
-      contents: read
+      contents: write
     uses: tirupathirao027/repo2/.github/workflows/flow2.yml@main
     secrets: inherit
