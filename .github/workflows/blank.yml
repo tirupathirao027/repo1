@@ -1,6 +1,6 @@
 name: copy
 
-on: [push]
+on: [workflow_dispatch]
   
   
   
