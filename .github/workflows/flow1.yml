@@ -9,4 +9,6 @@ jobs:
       id-token: write
       contents: write
     uses: tirupathirao027/repo2/.github/workflows/flow2.yml@main
+    with:
+      var1: "test"
     secrets: inherit
