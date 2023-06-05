@@ -1,4 +1,4 @@
-name: CI 
+name: flow1
 on:
   workflow_dispatch:
  
