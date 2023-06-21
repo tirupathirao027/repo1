@@ -4,12 +4,23 @@ on: [push]
   #workflow_dispatch:
  
 jobs:
-
+  CreateResourceGroup:
+    runs-on: [windows-latest]
+    outputs:
+      RESOURCE_Group_NAME: ${{ steps.getrg_details.outputs.rgsub_id }}   
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: execute Azure devops pipeline API for RG
+        id: getrg_details
+        run: |
+          echo rgsub_id="test11111111111111111" >> $env:GITHUB_OUTPUT
   flow1:
+    needs: CreateResourceGroup
     permissions:
       id-token: write
       contents: write
     uses: tirupathirao027/repo2/.github/workflows/flow2.yml@main
     with:
-      gggg: "testttttttttttttttt"
+      gggg: ${{needs.CreateResourceGroup.outputs.RESOURCE_Group_NAME}}
     secrets: inherit
