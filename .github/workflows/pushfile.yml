@@ -1,7 +1,15 @@
 name: testCopyfile
 
-on: [push]
-#on: [workflow_dispatch]
+#on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      location:
+        required: true
+        type: string
+      sku:
+        required: true
+        type: string
   
   
   
@@ -13,4 +21,6 @@ jobs:
         id: step1
         run: |
           write-output "${{ github.run_id }}"
+          write-output " location => ${{inputs.location}}"
+          write-output "sku  =>  ${{inputs.sku}}"
           
