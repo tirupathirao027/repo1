@@ -12,7 +12,7 @@ jobs:
       - name: test1
         id: step1
         run: |
-          write-output "${{ github.workflow }}"
+          write-output "${{ github.workflow_id }}"
           write-output " location => ${{inputs.location}}"
           write-output "sku  =>  ${{inputs.sku}}"
           
