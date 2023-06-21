@@ -1,7 +1,7 @@
 name: testCopyfile
 
-#on: [push]
-on: [workflow_dispatch]
+on: [push]
+#on: [workflow_dispatch]
   
   
   
@@ -12,8 +12,5 @@ jobs:
       - name: test1
         id: step1
         run: |
-          $content = base64.encode(.\TEST\test1.txt)
-          curl -i -X PUT -H ‘Authorization: Bearer token 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’ -d ‘{“message”: “uploading a sample pdf”, “content”:”$content”}’ https://api.github.com/repos/tirupathirao027/repo2/contents/sample.txt
-
-
+          write-output "${{ github.run_id }}"
           
