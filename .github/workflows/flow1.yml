@@ -1,5 +1,5 @@
 name: flow1
-on: [push]
+#on: [push]
 
   #workflow_dispatch:
  
