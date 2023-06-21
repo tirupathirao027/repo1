@@ -1,9 +1,16 @@
 name: testCopyfile
 
 #on: [push]
-on: 
-  workflow_dispatch:
 
+on:
+  workflow_dispatch:
+    inputs:
+      location:
+        required: true
+        type: string
+      sku:
+        required: true
+        type: string
   
   
   
