@@ -75,30 +75,3 @@ jobs:
           write-output ${{inputs.opened_by}}
           write-output ${{inputs.email}}
           write-output ${{inputs.office}}
-          write-output ${{inputs.requester_asset_info}}
-          write-output ${{inputs.iacpipelineid}}
-          write-output ${{inputs.iacproject}}
-          write-output ${{inputs.iacbranchname}}
-          write-output ${{inputs.iacpipelinetimeout}}
-          write-output ${{inputs.iactimeoutag}}
-          write-output ${{inputs.repo_admins}}
-          write-output ${{inputs.repo_writers}}
-          write-output ${{inputs.repo_readers}}
-          write-output ${{inputs.tenant}}
-          write-output ${{inputs.contributorupn}}
-          write-output ${{inputs.team_name}}
-          write-output ${{inputs.name_context_container_start}}
-          write-output ${{inputs.solution_name}}
-          write-output ${{inputs.context}}
-          write-output ${{inputs.DMZcheckbox}}
-          write-output ${{inputs.cost_center}}
-          write-output ${{inputs.financial_owner}}
-          write-output ${{inputs.billing_contact}}
-          write-output ${{inputs.department}}
-          write-output ${{inputs.apm_id}}
-          write-output ${{inputs.market}}
-          write-output ${{inputs.functional_owner}}
-          write-output ${{inputs.technical_owner}}
-          write-output ${{inputs.shared_cost}}
-          write-output ${{inputs.data_classification}}
-          write-output ${{inputs.pii}}
