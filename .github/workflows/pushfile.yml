@@ -29,34 +29,9 @@ on:
       office:
         required: true
         type: string
-      requester_asset_info:
+      u_requester:
         required: true
         type: string
-      iacpipelineid:
-        required: true
-        type: string
-      iacproject:
-        required: true
-        type: string
-      iacbranchname:
-        required: true
-        type: string
-      iacpipelinetimeout:
-        required: true
-        type: string
-      iactimeoutag:
-        required: true
-        type: string
-      team_name:
-        required: true
-        type: string
-      name_context_container_start:
-        required: true
-        type: string
-      pii:
-        required: true
-        type: string
-
   
   
 jobs:
