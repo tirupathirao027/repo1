@@ -18,5 +18,7 @@ jobs:
         id: test
         run: |
           write-output "${{inputs.test}}"
+          $req= ${{inputs.test}}| ConvertFrom-Json
+          $req
 
 
