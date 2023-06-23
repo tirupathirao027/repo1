@@ -43,7 +43,7 @@ jobs:
       - name: test1
         id: test
         run: |
-          if (${{inputs.office}} -eq "true")
+          if (${{inputs.office}})
           {
           echo subnet_delegate="prod" >> $env:GITHUB_OUTPUT
           }else{
