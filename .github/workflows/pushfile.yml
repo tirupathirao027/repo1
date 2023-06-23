@@ -5,33 +5,9 @@ name: testCopyfile
 on:
   workflow_dispatch:
     inputs:
-      requester_information:
+      test:
         required: true
         type: string          
-      userid:
-        required: true
-        type: string                                  
-      requester_location:
-        required: true
-        type: string                 
-      phone:
-        required: true
-        type: string
-      SPECIAL_MSG_no_manager_exception_request_approver:
-        required: true
-        type: string
-      opened_by:
-        required: true
-        type: string  
-      email:
-        required: true
-        type: string
-      office:
-        required: true
-        type: string
-      u_requester:
-        required: true
-        type: string
   
   
 jobs:
@@ -43,17 +19,6 @@ jobs:
       - name: test1
         id: test
         run: |
-          $prod='env_${{inputs.office}}'
-          $test='env_${{inputs.phone}}'
-          if ('env_true' -eq $prod)
-          {
-          echo subnet_delegate="prod" >> $env:GITHUB_OUTPUT
-          }elseif('env_true' -eq $test){
-          echo subnet_delegate="test" >> $env:GITHUB_OUTPUT
-          }
-          else{
-          echo subnet_delegate="nonprod" >> $env:GITHUB_OUTPUT
-          }
           write-output ${{inputs.requester_information}}
           write-output ${{inputs.u_requester}}
           write-output ${{inputs.userid}}
@@ -63,10 +28,4 @@ jobs:
           write-output ${{inputs.opened_by}}
           write-output ${{inputs.email}}
           write-output ${{inputs.office}}
-      - name: prit output
-        run: |
-          write-output ${{ steps.test.outputs.subnet_delegate }}
-          if ( '${{ steps.test.outputs.subnet_delegate }}' -eq 'test' )
-          {
-            write-output "successsssss"
-          }
+
