@@ -18,7 +18,8 @@ jobs:
         id: test
         run: |
           write-output "${{inputs.test}}"
-          $req= '${{inputs.test}}'| ConvertTo-Json
-          $req
+          $test="$(${{inputs.test}}| ConvertTo-Json -Compress)"
+          $req=$test|ConvertFrom-Json
+          $req.Account
 
 
