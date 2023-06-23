@@ -13,19 +13,10 @@ on:
 jobs:
   job1:
     runs-on:  [windows-latest]
-    outputs:
-      SUBNET: ${{ steps.test.outputs.subnet_delegate }}
     steps:
       - name: test1
         id: test
         run: |
-          write-output ${{inputs.requester_information}}
-          write-output ${{inputs.u_requester}}
-          write-output ${{inputs.userid}}
-          write-output ${{inputs.requester_location}}
-          write-output ${{inputs.phone}}
-          write-output ${{inputs.SPECIAL_MSG_no_manager_exception_request_approver}}
-          write-output ${{inputs.opened_by}}
-          write-output ${{inputs.email}}
-          write-output ${{inputs.office}}
+          write-output ${{inputs.test}}
+
 
