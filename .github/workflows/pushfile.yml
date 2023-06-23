@@ -7,7 +7,7 @@ on:
     inputs:
       test:
         required: true
-        type: '{}'         
+        type: string        
   
   
 jobs:
