@@ -37,10 +37,18 @@ on:
 jobs:
   job1:
     runs-on:  [windows-latest]
+    outputs:
+      SUBNET: ${{ steps.test.outputs.subnet_delegate }}
     steps:
       - name: test1
-        id: step1
+        id: test
         run: |
+          if (inputs.office -eq true)
+          {
+          echo subnet_delegate="prod" >> $env:GITHUB_OUTPUT
+          }else{
+          echo subnet_delegate="nonprod" >> $env:GITHUB_OUTPUT
+          }
           write-output ${{inputs.requester_information}}
           write-output ${{inputs.u_requester}}
           write-output ${{inputs.userid}}
@@ -50,3 +58,6 @@ jobs:
           write-output ${{inputs.opened_by}}
           write-output ${{inputs.email}}
           write-output ${{inputs.office}}
+      - name: prit output
+        run: |
+          write-output ${{ steps.test.outputs.subnet_delegate }}
