@@ -51,7 +51,7 @@ jobs:
           }elseif('env_true' -eq $test){
           echo subnet_delegate="test" >> $env:GITHUB_OUTPUT
           }
-          }else{
+          else{
           echo subnet_delegate="nonprod" >> $env:GITHUB_OUTPUT
           }
           write-output ${{inputs.requester_information}}
