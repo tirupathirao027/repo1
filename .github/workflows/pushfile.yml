@@ -43,9 +43,9 @@ jobs:
       - name: test1
         id: test
         run: |
-          $prod='${{inputs.office}}.ToString()'
+          $prod='env_${{inputs.office}}'
           $prod
-          if ('true' -eq $prod)
+          if ('env_true' -eq $prod)
           {
           echo subnet_delegate="prod" >> $env:GITHUB_OUTPUT
           }else{
