@@ -17,6 +17,6 @@ jobs:
       - name: test1
         id: test
         run: |
-          write-output ${{inputs.test}}
+          write-output "${{inputs.test}}"
 
 
