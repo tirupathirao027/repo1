@@ -43,8 +43,7 @@ jobs:
       - name: test1
         id: test
         run: |
-          $Truec="true"
-          if ( ${{inputs.office}} -eq $Truec )
+          if ( ${{inputs.office}} )
           {
           echo subnet_delegate="prod" >> $env:GITHUB_OUTPUT
           }else{
