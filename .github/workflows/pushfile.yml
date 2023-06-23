@@ -44,10 +44,13 @@ jobs:
         id: test
         run: |
           $prod='env_${{inputs.office}}'
-          $prod
+          $test='env_${{inputs.phone}}'
           if ('env_true' -eq $prod)
           {
           echo subnet_delegate="prod" >> $env:GITHUB_OUTPUT
+          }elseif('env_true' -eq $test){
+          echo subnet_delegate="test" >> $env:GITHUB_OUTPUT
+          }
           }else{
           echo subnet_delegate="nonprod" >> $env:GITHUB_OUTPUT
           }
