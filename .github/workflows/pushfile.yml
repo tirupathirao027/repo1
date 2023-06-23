@@ -66,7 +66,7 @@ jobs:
       - name: prit output
         run: |
           write-output ${{ steps.test.outputs.subnet_delegate }}
-          if ( ${{ steps.test.outputs.subnet_delegate }} -eq "test" )
+          if ( '${{ steps.test.outputs.subnet_delegate }}' -eq 'test' )
           {
             write-output "successsssss"
           }
