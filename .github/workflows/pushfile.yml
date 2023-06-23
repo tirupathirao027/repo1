@@ -17,9 +17,9 @@ jobs:
       - name: test1
         id: test
         run: |
-          write-output "${{inputs.body}}"
           $test="$(${{inputs.body}}| ConvertTo-Json -Compress)"
           $req=$test|ConvertFrom-Json
-          $req.Account
+          $pipid=$req.iacpipelineid
+          $pipid
 
 
