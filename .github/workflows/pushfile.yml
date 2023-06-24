@@ -11,10 +11,76 @@ on:
   
   
 jobs:
-  job1:
+  GetSnowInputs:
     runs-on:  [windows-latest]
+    outputs:
+      REQUESTER_INFORMATION: ${{ steps.get_snow_inputs.outputs.requester_information }}
+      U_REQUESTER: ${{ steps.get_snow_inputs.outputs.u_requester }}
+      USERID: ${{ steps.get_snow_inputs.outputs.userid }}
+      REQUESTER_LOCATION: ${{ steps.get_snow_inputs.outputs.requester_location }}
+      PHONE: ${{ steps.get_snow_inputs.outputs.phone }}
+      SPECIAL_MSG: ${{ steps.get_snow_inputs.outputs.SPECIAL_MSG }}
+      OPENED_BY: ${{ steps.get_snow_inputs.outputs.opened_by }}
+      EMAIL: ${{ steps.get_snow_inputs.outputs.email }}
+      OFFICE: ${{ steps.get_snow_inputs.outputs.office }}
+      REQUESTER_ASSET_INFO: ${{ steps.get_snow_inputs.outputs.requester_asset_info }}
+      IACPIPELINEID: ${{ steps.get_snow_inputs.outputs.iacpipelineid }}
+      IACPROJECT: ${{ steps.get_snow_inputs.outputs.iacproject }}
+      IACBRANCHNAME: ${{ steps.get_snow_inputs.outputs.iacbranchname }}
+      IACPIPELINETIMEOUT: ${{ steps.get_snow_inputs.outputs.iacpipelinetimeout }}
+      IACTIMEOUTAG: ${{ steps.get_snow_inputs.outputs.iactimeoutag }}
+      REPO_ADMINS: ${{ steps.get_snow_inputs.outputs.repo_admins }}
+      REPO_WRITERS: ${{ steps.get_snow_inputs.outputs.repo_writers }}
+      REPO_READERS: ${{ steps.get_snow_inputs.outputs.repo_readers }}
+      TENANT: ${{ steps.get_snow_inputs.outputs.tenant }}
+      CONTRIBUTORUPN: ${{ steps.get_snow_inputs.outputs.contributorupn }}
+      TEAM_NAME: ${{ steps.get_snow_inputs.outputs.team_name }}
+      CONTEXT_CONTAINER: ${{ steps.get_snow_inputs.outputs.context_container }}
+      SOLUTION_NAME: ${{ steps.get_snow_inputs.outputs.solution_name }}
+      CONTEXT: ${{ steps.get_snow_inputs.outputs.context }}
+      DMZCHECKBOX: ${{ steps.get_snow_inputs.outputs.DMZcheckbox }}
+      COST_CENTER: ${{ steps.get_snow_inputs.outputs.cost_center }}
+      FINANCIAL_OWNER: ${{ steps.get_snow_inputs.outputs.financial_owner }}
+      BILLING_CONTACT: ${{ steps.get_snow_inputs.outputs.billing_contact }}
+      DEPARTMENT: ${{ steps.get_snow_inputs.outputs.department }}
+      APM_ID: ${{ steps.get_snow_inputs.outputs.apm_id }}
+      MARKET: ${{ steps.get_snow_inputs.outputs.market }}
+      FUNCTIONAL_OWNER: ${{ steps.get_snow_inputs.outputs.functional_owner }}
+      TECHNICAL_OWNER: ${{ steps.get_snow_inputs.outputs.technical_owner }}
+      SHARED_COST: ${{ steps.get_snow_inputs.outputs.shared_cost }}
+      DATA_CLASSIFICATION: ${{ steps.get_snow_inputs.outputs.data_classification }}
+      PII: ${{ steps.get_snow_inputs.outputs.pii }}
+      NETWORK: ${{ steps.get_snow_inputs.outputs.network }}
+      ENV_CONTAINER: ${{ steps.get_snow_inputs.outputs.env_container }}
+      DEVELOPMENT: ${{ steps.get_snow_inputs.outputs.development }}
+      TEST: ${{ steps.get_snow_inputs.outputs.test }}
+      PREPRODUCTION: ${{ steps.get_snow_inputs.outputs.preproduction }}
+      PRODUCTION: ${{ steps.get_snow_inputs.outputs.production }}
+      INNOVATION: ${{ steps.get_snow_inputs.outputs.innovation }}
+      INTEGRATION: ${{ steps.get_snow_inputs.outputs.integration }}
+      RUNTIME: ${{ steps.get_snow_inputs.outputs.runtime }}
+      SANDBOX: ${{ steps.get_snow_inputs.outputs.sandbox }}
+      STAGING: ${{ steps.get_snow_inputs.outputs.staging }}
+      EXPLORATION: ${{ steps.get_snow_inputs.outputs.exploration }}
+      NONPRODUCTION: ${{ steps.get_snow_inputs.outputs.nonproduction }}
+      ENV_CONTAINER_END: ${{ steps.get_snow_inputs.outputs.env_container_end }}
+      ACKNOW_CONTAINER: ${{ steps.get_snow_inputs.outputs.acknow_container }}
+      SPP_AZURE_REGION: ${{ steps.get_snow_inputs.outputs.spp_azure_region }}
+      CONFIRMATION_GIP: ${{ steps.get_snow_inputs.outputs.confirmation_gip }}
+      SUB_RG_NAME: ${{ steps.get_snow_inputs.outputs.sub_rg_name }}
+      RG: ${{ steps.get_snow_inputs.outputs.rg }}
+      REPO_NAME: ${{ steps.get_snow_inputs.outputs.repo_name }}
+      TEMPLATES: ${{ steps.get_snow_inputs.outputs.templates }}
+      REGION: ${{ steps.get_snow_inputs.outputs.region }}
+      DXC_MACRO_TEMPLATE: ${{ steps.get_snow_inputs.outputs.dxc_macro_template }}
+      NET_VERSIONS: ${{ steps.get_snow_inputs.outputs.net_versions }}
+      PHP_VERSIONS: ${{ steps.get_snow_inputs.outputs.php_versions }}
+      SKU_TIER: ${{ steps.get_snow_inputs.outputs.sku_tier }}
+      VCORE: ${{ steps.get_snow_inputs.outputs.Vcore }}
+      STORAGE_MAX_SIZE_IN_GB: ${{ steps.get_snow_inputs.outputs.storage_max_size_in_gb }} 
+      TICKET: ${{ steps.get_snow_inputs.outputs.ticket }}
     steps:
-      - name: test1
+      - name: getting snow inputs
         id: get_snow_inputs
         run: |
           $json="$(${{inputs.body}}| ConvertTo-Json -Compress)"
@@ -85,7 +151,7 @@ jobs:
           $storage_max_size_in_gb=$req.storage_max_size_in_gb
           $ticket=$req.ticket
           echo requester_information=$requester_information >> $env:GITHUB_OUTPUT
-          echo v=$u_requester >> $env:GITHUB_OUTPUT
+          echo u_requester=$u_requester >> $env:GITHUB_OUTPUT
           echo userid=$userid >> $env:GITHUB_OUTPUT
           echo requester_location=$requester_location >> $env:GITHUB_OUTPUT
           echo phone=$phone >> $env:GITHUB_OUTPUT
@@ -149,3 +215,70 @@ jobs:
           echo Vcore=$Vcore >> $env:GITHUB_OUTPUT
           echo storage_max_size_in_gb=$storage_max_size_in_gb >> $env:GITHUB_OUTPUT
           echo ticket=$ticket >> $env:GITHUB_OUTPUT
+      - name: print outputs
+        run: |
+          write-output ${{ needs.GetSnowInputs.outputs.REQUESTER_INFORMATION }}
+          write-output ${{ needs.GetSnowInputs.outputs.U_REQUESTER }}
+          write-output ${{ needs.GetSnowInputs.outputs.USERID }}
+          write-output ${{ needs.GetSnowInputs.outputs.REQUESTER_LOCATION }}
+          write-output ${{ needs.GetSnowInputs.outputs.PHONE }}
+          write-output ${{ needs.GetSnowInputs.outputs.SPECIAL_MSG }}
+          write-output ${{ needs.GetSnowInputs.outputs.OPENED_BY }}
+          write-output ${{ needs.GetSnowInputs.outputs.EMAIL }}
+          write-output ${{ needs.GetSnowInputs.outputs.OFFICE }}
+          write-output ${{ needs.GetSnowInputs.outputs.REQUESTER_ASSET_INFO }}
+          write-output ${{ needs.GetSnowInputs.outputs.IACPIPELINEID }}
+          write-output ${{ needs.GetSnowInputs.outputs.IACPROJECT }}
+          write-output ${{ needs.GetSnowInputs.outputs.IACBRANCHNAME }}
+          write-output ${{ needs.GetSnowInputs.outputs.IACPIPELINETIMEOUT }}
+          write-output ${{ needs.GetSnowInputs.outputs.IACTIMEOUTAG }}
+          write-output ${{ needs.GetSnowInputs.outputs.REPO_ADMINS }}
+          write-output ${{ needs.GetSnowInputs.outputs.REPO_WRITERS }}
+          write-output ${{ needs.GetSnowInputs.outputs.REPO_READERS }}
+          write-output ${{ needs.GetSnowInputs.outputs.TENANT }}
+          write-output ${{ needs.GetSnowInputs.outputs.CONTRIBUTORUPN }}
+          write-output ${{ needs.GetSnowInputs.outputs.TEAM_NAME }}
+          write-output ${{ needs.GetSnowInputs.outputs.CONTEXT_CONTAINER }}
+          write-output ${{ needs.GetSnowInputs.outputs.SOLUTION_NAME }}
+          write-output ${{ needs.GetSnowInputs.outputs.CONTEXT }}
+          write-output ${{ needs.GetSnowInputs.outputs.DMZCHECKBOX }}
+          write-output ${{ needs.GetSnowInputs.outputs.COST_CENTER }}
+          write-output ${{ needs.GetSnowInputs.outputs.FINANCIAL_OWNER }}
+          write-output ${{ needs.GetSnowInputs.outputs.BILLING_CONTACT }}
+          write-output ${{ needs.GetSnowInputs.outputs.DEPARTMENT }}
+          write-output ${{ needs.GetSnowInputs.outputs.APM_ID }}
+          write-output ${{ needs.GetSnowInputs.outputs.MARKET }}
+          write-output ${{ needs.GetSnowInputs.outputs.FUNCTIONAL_OWNER }}
+          write-output ${{ needs.GetSnowInputs.outputs.TECHNICAL_OWNER }}
+          write-output ${{ needs.GetSnowInputs.outputs.SHARED_COST }}
+          write-output ${{ needs.GetSnowInputs.outputs.DATA_CLASSIFICATION }}
+          write-output ${{ needs.GetSnowInputs.outputs.PII }}
+          write-output ${{ needs.GetSnowInputs.outputs.NETWORK }}
+          write-output ${{ needs.GetSnowInputs.outputs.ENV_CONTAINER }}
+          write-output ${{ needs.GetSnowInputs.outputs.DEVELOPMENT }}
+          write-output ${{ needs.GetSnowInputs.outputs.TEST }}
+          write-output ${{ needs.GetSnowInputs.outputs.PREPRODUCTION }}
+          write-output ${{ needs.GetSnowInputs.outputs.PRODUCTION }}
+          write-output ${{ needs.GetSnowInputs.outputs.INNOVATION }}
+          write-output ${{ needs.GetSnowInputs.outputs.INTEGRATION }}
+          write-output ${{ needs.GetSnowInputs.outputs.RUNTIME }}
+          write-output ${{ needs.GetSnowInputs.outputs.SANDBOX }}
+          write-output ${{ needs.GetSnowInputs.outputs.STAGING }}
+          write-output ${{ needs.GetSnowInputs.outputs.EXPLORATION }}
+          write-output ${{ needs.GetSnowInputs.outputs.NONPRODUCTION }}
+          write-output ${{ needs.GetSnowInputs.outputs.ENV_CONTAINER_END }}
+          write-output ${{ needs.GetSnowInputs.outputs.ACKNOW_CONTAINER }}
+          write-output ${{ needs.GetSnowInputs.outputs.SPP_AZURE_REGION }}
+          write-output ${{ needs.GetSnowInputs.outputs.CONFIRMATION_GIP }}
+          write-output ${{ needs.GetSnowInputs.outputs.SUB_RG_NAME }}
+          write-output ${{ needs.GetSnowInputs.outputs.RG }}
+          write-output ${{ needs.GetSnowInputs.outputs.REPO_NAME }}
+          write-output ${{ needs.GetSnowInputs.outputs.TEMPLATES }}
+          write-output ${{ needs.GetSnowInputs.outputs.REGION }}
+          write-output ${{ needs.GetSnowInputs.outputs.DXC_MACRO_TEMPLATE }}
+          write-output ${{ needs.GetSnowInputs.outputs.NET_VERSIONS }}
+          write-output ${{ needs.GetSnowInputs.outputs.PHP_VERSIONS }}
+          write-output ${{ needs.GetSnowInputs.outputs.SKU_TIER }}
+          write-output ${{ needs.GetSnowInputs.outputs.VCORE }}
+          write-output ${{ needs.GetSnowInputs.outputs.STORAGE_MAX_SIZE_IN_GB }}
+          write-output ${{ needs.GetSnowInputs.outputs.TICKET }}
