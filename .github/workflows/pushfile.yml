@@ -215,9 +215,12 @@ jobs:
           echo Vcore=$Vcore >> $env:GITHUB_OUTPUT
           echo storage_max_size_in_gb=$storage_max_size_in_gb >> $env:GITHUB_OUTPUT
           echo ticket=$ticket >> $env:GITHUB_OUTPUT
+  PrintValues:
+    runs-on: [windows-latest]
+    needs: GetSnowInputs
+    steps:
       - name: print outputs
         run: |
-          write-output ${{ steps.get_snow_inputs.outputs.u_requester }}
           write-output ${{ needs.GetSnowInputs.outputs.REQUESTER_INFORMATION }}
           write-output ${{ needs.GetSnowInputs.outputs.U_REQUESTER }}
           write-output ${{ needs.GetSnowInputs.outputs.USERID }}
