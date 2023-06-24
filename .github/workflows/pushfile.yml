@@ -84,68 +84,68 @@ jobs:
           $Vcore=$req.total_number_of_vcores_for_elastic_pool
           $storage_max_size_in_gb=$req.storage_max_size_in_gb
           $ticket=$req.ticket
-          write-output $requester_information
-          write-output $u_requester
-          write-output $userid
-          write-output $requester_location
-          write-output $phone
-          write-output $SPECIAL_MSG_no_manager_exception_request_approverwrite-output $,
-          write-output $opened_by
-          write-output $email
-          write-output $office
-          write-output $requester_asset_info
-          write-output $iacpipelineid
-          write-output $iacproject
-          write-output $iacbranchname
-          write-output $iacpipelinetimeout
-          write-output $iactimeoutag
-          write-output $repo_admins
-          write-output $repo_writers
-          write-output $repo_readers
-          write-output $tenant
-          write-output $contributorupn
-          write-output $team_name
-          write-output $name_context_container_start
-          write-output $solution_name
-          write-output $context
-          write-output $DMZcheckbox
-          write-output $cost_center
-          write-output $financial_owner
-          write-output $billing_contact
-          write-output $department
-          write-output $apm_id
-          write-output $market
-          write-output $functional_owner
-          write-output $technical_owner
-          write-output $shared_cost
-          write-output $data_classification
-          write-output $pii
-          write-output $network
-          write-output $environments_container_start
-          write-output $development
-          write-output $test
-          write-output $preproduction
-          write-output $production
-          write-output $innovation
-          write-output $integration
-          write-output $runtime
-          write-output $sandbox
-          write-output $staging
-          write-output $exploration
-          write-output $nonproduction
-          write-output $environments_container_end
-          write-output $acknowledgement_container_start
-          write-output $spp_azure_region
-          write-output $confirmation_gip_azure_document
-          write-output $view_subscription_resource_group_name
-          write-output $resource_group_name
-          write-output $repo_name
-          write-output $templates
-          write-output $region
-          write-output $dxc_macro_template_16000
-          write-output $net_versions
-          write-output $php_versions
-          write-output $sku_tier
-          write-output $total_number_of_vcores_for_elastic_pool
-          write-output $storage_max_size_in_gb
-          write-output $ticket
+          echo requester_information=$req.requester_information >> $env:GITHUB_OUTPUT
+          echo u_requester=$req.u_requester >> $env:GITHUB_OUTPUT
+          echo userid=$req.userid >> $env:GITHUB_OUTPUT
+          echo requester_location=$req.requester_location >> $env:GITHUB_OUTPUT
+          echo phone=$req.phone >> $env:GITHUB_OUTPUT
+          echo SPECIAL_MSG=$req.SPECIAL_MSG_no_manager_exception_request_approver >> $env:GITHUB_OUTPUT
+          echo opened_by=$req.opened_by >> $env:GITHUB_OUTPUT
+          echo email=$req.email >> $env:GITHUB_OUTPUT
+          echo office=$req.office >> $env:GITHUB_OUTPUT
+          echo requester_asset_info=$req.requester_asset_info >> $env:GITHUB_OUTPUT
+          echo iacpipelineid=$req.iacpipelineid >> $env:GITHUB_OUTPUT
+          echo iacproject=$req.iacproject >> $env:GITHUB_OUTPUT
+          echo iacbranchname=$req.iacbranchname >> $env:GITHUB_OUTPUT
+          echo iacpipelinetimeout=$req.iacpipelinetimeout >> $env:GITHUB_OUTPUT
+          echo iactimeoutag=$req.iactimeoutag >> $env:GITHUB_OUTPUT
+          echo repo_admins=$req.repo_admins >> $env:GITHUB_OUTPUT
+          echo repo_writers=$req.repo_writers >> $env:GITHUB_OUTPUT
+          echo repo_readers=$req.repo_readers >> $env:GITHUB_OUTPUT
+          echo tenant=$req.tenant >> $env:GITHUB_OUTPUT
+          echo contributorupn=$req.contributorupn >> $env:GITHUB_OUTPUT
+          echo team_name=$req.team_name >> $env:GITHUB_OUTPUT
+          echo name_context_container_start=$req.name_context_container_start >> $env:GITHUB_OUTPUT
+          echo solution_name=$req.solution_name >> $env:GITHUB_OUTPUT
+          echo context=$req.context >> $env:GITHUB_OUTPUT
+          echo DMZcheckbox=$req.DMZcheckbox >> $env:GITHUB_OUTPUT
+          echo cost_center=$req.cost_center >> $env:GITHUB_OUTPUT
+          echo financial_owner=$req.financial_owner >> $env:GITHUB_OUTPUT
+          echo billing_contact=$req.billing_contact >> $env:GITHUB_OUTPUT
+          echo department=$req.department >> $env:GITHUB_OUTPUT
+          echo apm_id=$req.apm_id >> $env:GITHUB_OUTPUT
+          echo market=$req.market >> $env:GITHUB_OUTPUT
+          echo functional_owner=$req.functional_owner >> $env:GITHUB_OUTPUT
+          echo technical_owner=$req.technical_owner >> $env:GITHUB_OUTPUT
+          echo shared_cost=$req.shared_cost >> $env:GITHUB_OUTPUT
+          echo data_classification=$req.data_classification >> $env:GITHUB_OUTPUT
+          echo pii=$req.pii >> $env:GITHUB_OUTPUT
+          echo network=$req.network >> $env:GITHUB_OUTPUT
+          echo environments_container=$req.environments_container_start >> $env:GITHUB_OUTPUT
+          echo development=$req.development >> $env:GITHUB_OUTPUT
+          echo test=$req.test >> $env:GITHUB_OUTPUT
+          echo preproduction=$req.preproduction >> $env:GITHUB_OUTPUT
+          echo production=$req.production >> $env:GITHUB_OUTPUT
+          echo innovation=$req.innovation >> $env:GITHUB_OUTPUT
+          echo integration=$req.integration >> $env:GITHUB_OUTPUT
+          echo runtime=$req.runtime >> $env:GITHUB_OUTPUT
+          echo sandbox=$req.sandbox >> $env:GITHUB_OUTPUT
+          echo staging=$req.staging >> $env:GITHUB_OUTPUT
+          echo exploration=$req.exploration >> $env:GITHUB_OUTPUT
+          echo nonproduction=$req.nonproduction >> $env:GITHUB_OUTPUT
+          echo environments_container_end=$req.environments_container_end >> $env:GITHUB_OUTPUT
+          echo acknowledgement_container_start=$req.acknowledgement_container_start >> $env:GITHUB_OUTPUT
+          echo spp_azure_region=$req.spp_azure_region >> $env:GITHUB_OUTPUT
+          echo confirmation_gip=$req.confirmation_gip_azure_document >> $env:GITHUB_OUTPUT
+          echo sub_resource_group_name=$req.view_subscription_resource_group_name >> $env:GITHUB_OUTPUT
+          echo resource_group_name=$req.resource_group_name >> $env:GITHUB_OUTPUT
+          echo repo_name=$req.repo_name >> $env:GITHUB_OUTPUT
+          echo templates=$req.templates >> $env:GITHUB_OUTPUT
+          echo region=$req.region >> $env:GITHUB_OUTPUT
+          echo dxc_macro_template=$req.dxc_macro_template_16000 >> $env:GITHUB_OUTPUT
+          echo net_versions=$req.net_versions >> $env:GITHUB_OUTPUT
+          echo php_versions=$req.php_versions >> $env:GITHUB_OUTPUT
+          echo sku_tier=$req.sku_tier >> $env:GITHUB_OUTPUT
+          echo Vcore=$req.total_number_of_vcores_for_elastic_pool >> $env:GITHUB_OUTPUT
+          echo storage_max_size_in_gb=$req.storage_max_size_in_gb >> $env:GITHUB_OUTPUT
+          echo ticket=$req.ticket >> $env:GITHUB_OUTPUT
