@@ -24,7 +24,7 @@ jobs:
           $userid=$req.userid
           $requester_location=$req.requester_location
           $phone=$req.phone
-		      $SPECIAL_MSG=$req.SPECIAL_MSG_no_manager_exception_request_approver
+          $SPECIAL_MSG=$req.SPECIAL_MSG_no_manager_exception_request_approver
           $opened_by=$req.opened_by
           $email=$req.email
           $office=$req.office
