@@ -28,8 +28,8 @@ jobs:
           $opened_by=$req.opened_by
           $email=$req.email
           $office=$req.office
-          $=$req.requester_asset_info
-          $requester_asset_info=$req.iacpipelineid
+          $requester_asset_info=$req.requester_asset_info
+          $iacpipelineid=$req.iacpipelineid
           $iacproject=$req.iacproject
           $iacbranchname=$req.iacbranchname
           $iacpipelinetimeout=$req.iacpipelinetimeout
