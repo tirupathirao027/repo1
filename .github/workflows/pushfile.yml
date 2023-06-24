@@ -17,9 +17,135 @@ jobs:
       - name: test1
         id: test
         run: |
-          $test="$(${{inputs.body}}| ConvertTo-Json -Compress)"
-          $req=$test|ConvertFrom-Json
-          $pipid=$req.iacpipelineid
-          $pipid
-
-
+          $json="$(${{inputs.body}}| ConvertTo-Json -Compress)"
+          $req=$json|ConvertFrom-Json
+          $requester_information=$req.requester_information
+          $u_requester=$req.u_requester
+          $userid=$req.userid
+          $requester_location=$req.requester_location
+          $phone=$req.phone
+          $SPECIAL_MSG_no_manager_exception_request_approver=$req.SPECIAL_MSG_no_manager_exception_request_approver
+          $opened_by=$req.opened_by
+          $email=$req.email
+          $office=$req.office
+          $=$req.requester_asset_info
+          $requester_asset_info=$req.iacpipelineid
+          $iacproject=$req.iacproject
+          $iacbranchname=$req.iacbranchname
+          $iacpipelinetimeout=$req.iacpipelinetimeout
+          $iactimeoutag=$req.iactimeoutag
+          $repo_admins=$req.repo_admins
+          $repo_writers=$req.repo_writers
+          $repo_readers=$req.repo_readers
+          $tenant=$req.tenant
+          $contributorupn=$req.contributorupn
+          $team_name=$req.team_name
+          $name_context_container_start=$req.name_context_container_start
+          $solution_name=$req.solution_name
+          $context=$req.context
+          $DMZcheckbox=$req.DMZcheckbox
+          $cost_center=$req.cost_center
+          $financial_owner=$req.financial_owner
+          $billing_contact=$req.billing_contact
+          $department=$req.department
+          $apm_id=$req.apm_id
+          $market=$req.market
+          $functional_owner=$req.functional_owner
+          $technical_owner=$req.technical_owner
+          $shared_cost=$req.shared_cost
+          $data_classification=$req.data_classification
+          $pii=$req.pii
+          $network=$req.network
+          $environments_container_start=$req.environments_container_start
+          $development=$req.development
+          $test=$req.test
+          $preproduction=$req.preproduction
+          $production=$req.production
+          $innovation=$req.innovation
+          $integration=$req.integration
+          $runtime=$req.runtime
+          $sandbox=$req.sandbox
+          $staging=$req.staging
+          $exploration=$req.exploration
+          $nonproduction=$req.nonproduction
+          $environments_container_end=$req.environments_container_end
+          $acknowledgement_container_start=$req.acknowledgement_container_start
+          $spp_azure_region=$req.spp_azure_region
+          $confirmation_gip_azure_document=$req.confirmation_gip_azure_document
+          $view_subscription_resource_group_name=$req.view_subscription_resource_group_name
+          $resource_group_name=$req.resource_group_name
+          $repo_name=$req.repo_name
+          $templates=$req.templates
+          $region=$req.region
+          $dxc_macro_template=$req.dxc_macro_template_16000
+          $net_versions=$req.net_versions
+          $php_versions=$req.php_versions
+          $sku_tier=$req.sku_tier
+          $Vcore=$req.total_number_of_vcores_for_elastic_pool
+          $storage_max_size_in_gb=$req.storage_max_size_in_gb
+          $ticket=$req.ticket
+          write-output $requester_information
+          write-output $u_requester
+          write-output $userid
+          write-output $requester_location
+          write-output $phone
+          write-output $SPECIAL_MSG_no_manager_exception_request_approverwrite-output $,
+          write-output $opened_by
+          write-output $email
+          write-output $office
+          write-output $requester_asset_info
+          write-output $iacpipelineid
+          write-output $iacproject
+          write-output $iacbranchname
+          write-output $iacpipelinetimeout
+          write-output $iactimeoutag
+          write-output $repo_admins
+          write-output $repo_writers
+          write-output $repo_readers
+          write-output $tenant
+          write-output $contributorupn
+          write-output $team_name
+          write-output $name_context_container_start
+          write-output $solution_name
+          write-output $context
+          write-output $DMZcheckbox
+          write-output $cost_center
+          write-output $financial_owner
+          write-output $billing_contact
+          write-output $department
+          write-output $apm_id
+          write-output $market
+          write-output $functional_owner
+          write-output $technical_owner
+          write-output $shared_cost
+          write-output $data_classification
+          write-output $pii
+          write-output $network
+          write-output $environments_container_start
+          write-output $development
+          write-output $test
+          write-output $preproduction
+          write-output $production
+          write-output $innovation
+          write-output $integration
+          write-output $runtime
+          write-output $sandbox
+          write-output $staging
+          write-output $exploration
+          write-output $nonproduction
+          write-output $environments_container_end
+          write-output $acknowledgement_container_start
+          write-output $spp_azure_region
+          write-output $confirmation_gip_azure_document
+          write-output $view_subscription_resource_group_name
+          write-output $resource_group_name
+          write-output $repo_name
+          write-output $templates
+          write-output $region
+          write-output $dxc_macro_template_16000
+          write-output $net_versions
+          write-output $php_versions
+          write-output $sku_tier
+          write-output $total_number_of_vcores_for_elastic_pool
+          write-output $storage_max_size_in_gb
+          write-output $ticket
