@@ -1,24 +1,17 @@
 name: flow1
-on: [push]
+#on: [push]
 
-#on: [workflow_dispatch]
+on: 
+  workflow_dispatch:
+    inputs:
+      body:
+        required: true
+        type: string
 env:
   repo: 'repo2'
  
 jobs:
-  CreateResourceGroup:
-    runs-on: [windows-latest]
-    outputs:
-      RESOURCE_Group_NAME: ${{ steps.getrg_details.outputs.rgsub_id }}   
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: execute Azure devops pipeline API for RG
-        id: getrg_details
-        run: |
-          echo rgsub_id="kkkkkkkk" >> $env:GITHUB_OUTPUT
   flow1:
-    needs: CreateResourceGroup
     runs-on: [windows-latest]
     permissions:
       id-token: write
@@ -26,7 +19,7 @@ jobs:
     steps:
       - name: update labels
         run: |
-          gh workflow run flow2.yml --ref main --repo "tirupathirao027/${{env.repo}}" -f gggg="@{u_requester='User01';requester_location='Domain01'}"
+          gh workflow run flow2.yml --ref main --repo "tirupathirao027/${{env.repo}}" -f gggg="${{inputs.body}}"
         env:
           GITHUB_TOKEN: ${{ secrets.ACC_KEY }}
 
