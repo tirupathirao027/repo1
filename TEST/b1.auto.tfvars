@@ -1,2 +1,2 @@
-subscriptionid=
-subscription_name=         
+subscriptionid=""
+subscription_name=""        
