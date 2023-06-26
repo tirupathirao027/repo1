@@ -22,7 +22,7 @@ jobs:
     permissions:
       id-token: write
       contents: write
-    uses: '${{env.repo}}'
+    uses: ${{env.repo}}
     with:
       gggg: ${{needs.CreateResourceGroup.outputs.RESOURCE_Group_NAME}}
     secrets: inherit
