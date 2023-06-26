@@ -3,7 +3,7 @@ on: [push]
 
 #on: [workflow_dispatch]
 env:
-  repo: 'repo1'
+  repo: 'repo2'
  
 jobs:
   CreateResourceGroup:
@@ -19,10 +19,14 @@ jobs:
           echo rgsub_id="kkkkkkkk" >> $env:GITHUB_OUTPUT
   flow1:
     needs: CreateResourceGroup
+    runs-on: [windows-latest]
     permissions:
       id-token: write
       contents: write
-    uses: tirupathirao027/"${{env.repo}}"/.github/workflows/flow2.yml@main
-    with:
-      gggg: ${{needs.CreateResourceGroup.outputs.RESOURCE_Group_NAME}}
-    secrets: inherit
+    steps:
+      - name: update labels
+        run: |
+          gh workflow run flow2.yml --ref main --repo "tirupathirao027/${{env.repo}}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACC_KEY }}
+          gggg: "kkkkkkk"
