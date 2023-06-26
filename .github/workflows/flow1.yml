@@ -3,7 +3,7 @@ on: [push]
 
 #on: [workflow_dispatch]
 env:
-  repo: 'repo2'
+  repo: 'tirupathirao027/repo1/.github/workflows/flow2.yml@main'
  
 jobs:
   CreateResourceGroup:
@@ -22,7 +22,7 @@ jobs:
     permissions:
       id-token: write
       contents: write
-    uses: tirupathirao027/${{env.repo}}/.github/workflows/flow2.yml@main
+    uses: ${{env.repo}}
     with:
       gggg: ${{needs.CreateResourceGroup.outputs.RESOURCE_Group_NAME}}
     secrets: inherit
