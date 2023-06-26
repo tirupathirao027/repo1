@@ -14,6 +14,6 @@ jobs:
     steps:
       - name: update labels
         run: |
-          gh workflow run flow1.yml --ref main --repo "tirupathirao027/repo1" -f body="@{u_requester='User01';requester_location='Domain01'}"
+          gh workflow run flow1.yml --ref main --repo "tirupathirao027/repo1" -f webapp_inputs="@{subscription_name='User01';subscriptionid='Id0001'}"
         env:
           GITHUB_TOKEN: ${{ secrets.ACC_KEY }}
