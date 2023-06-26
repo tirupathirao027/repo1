@@ -23,10 +23,11 @@ jobs:
           $subscription_name=$req.subscription_name      
           $var_file_path = "${{ env.VARFILE_PATH }}\b1.auto.tfvars"
           write-output "variable file path=$var_file_path"
+          ls $var_file_path
           @"
           subscriptionid=$req.subscriptionid
           subscription_name=$req.subscription_name          
-          "@ | Set-Content -Path "$var_file_path"
+          "@ | out-file -encoding utf8 -filepath "$var_file_path"
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
