@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: update labels
         run: |
-          gh workflow run flow2.yml --ref main --repo "tirupathirao027/${{env.repo}}" -f gggg=success
+          gh workflow run flow2.yml --ref main --repo "tirupathirao027/${{env.repo}}" -f gggg="@{u_requester='User01';requester_location='Domain01'}"
         env:
           GITHUB_TOKEN: ${{ secrets.ACC_KEY }}
 
