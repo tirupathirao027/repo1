@@ -4,11 +4,11 @@ name: flow1
 on: 
   workflow_dispatch:
     inputs:
-      body:
+      webapp_inputs:
         required: true
         type: string
 env:
-  repo: 'repo2'
+  VARFILE_PATH: '.\TEST'
  
 jobs:
   flow1:
@@ -17,9 +17,23 @@ jobs:
       id-token: write
       contents: write
     steps:
-      - name: update labels
+      - name: Create tfvar file
         run: |
-          gh workflow run flow2.yml --ref main --repo "tirupathirao027/${{env.repo}}" -f gggg="${{inputs.body}}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACC_KEY }}
+          $json="$(${{inputs.webapp_inputs}}| ConvertTo-Json -Compress)"
+          $req=$json|ConvertFrom-Json
+          $subscriptionid=$req.subscriptionid
+          $subscription_name=$req.subscription_name      
+          $var_file_path = "${{ env.VARFILE_PATH }}\b1.auto.tfvars"
+          write-output "$var_file_path"
+          @"
+          subscriptionid=$req.subscriptionid
+          subscription_name=$req.subscription_name          
+          "@ | Set-Content -Path "$var_file_path"
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "Add changes" -a
+          git push
 
