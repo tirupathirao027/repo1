@@ -1,7 +1,9 @@
 name: flow1
-#on: [push]
+on: [push]
 
-on: [workflow_dispatch]
+#on: [workflow_dispatch]
+env:
+  repo: 'tirupathirao027'
  
 jobs:
   CreateResourceGroup:
@@ -20,7 +22,7 @@ jobs:
     permissions:
       id-token: write
       contents: write
-    uses: tirupathirao027/repo2/.github/workflows/flow2.yml@main
+    uses: ${{env.repo}}/repo2/.github/workflows/flow2.yml@main
     with:
       gggg: ${{needs.CreateResourceGroup.outputs.RESOURCE_Group_NAME}}
     secrets: inherit
