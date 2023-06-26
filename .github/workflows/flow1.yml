@@ -16,13 +16,13 @@ jobs:
       - name: execute Azure devops pipeline API for RG
         id: getrg_details
         run: |
-          echo rgsub_id="tirupathirao027" >> $env:GITHUB_OUTPUT
+          echo rgsub_id="kkkkkkkk" >> $env:GITHUB_OUTPUT
   flow1:
     needs: CreateResourceGroup
     permissions:
       id-token: write
       contents: write
-    uses: ${{needs.CreateResourceGroup.outputs.RESOURCE_Group_NAME}}/repo2/.github/workflows/flow2.yml@main
+    uses: tirupathirao027/repo2/.github/workflows/flow2.yml@main
     with:
       gggg: ${{needs.CreateResourceGroup.outputs.RESOURCE_Group_NAME}}
     secrets: inherit
