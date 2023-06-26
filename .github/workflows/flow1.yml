@@ -17,6 +17,8 @@ jobs:
       id-token: write
       contents: write
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Create tfvar file
         run: |
           $json="$(${{inputs.webapp_inputs}}| ConvertTo-Json -Compress)"
