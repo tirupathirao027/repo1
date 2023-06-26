@@ -1,0 +1,19 @@
+name: flow0
+on: [push]
+
+#on: [workflow_dispatch]
+
+ 
+jobs:
+
+  flow0:
+    runs-on: [windows-latest]
+    permissions:
+      id-token: write
+      contents: write
+    steps:
+      - name: update labels
+        run: |
+          gh workflow run flow1.yml --ref main --repo "tirupathirao027/repo1" -f body="@{u_requester='User01';requester_location='Domain01'}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACC_KEY }}
