@@ -1,2 +1,2 @@
-subscriptionid=.subscriptionid
-subscription_name=.subscription_name          
+subscriptionid=".subscriptionid"
+subscription_name=".subscription_name"          
