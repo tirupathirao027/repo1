@@ -292,7 +292,9 @@ jobs:
     steps:
       - name: print outputs
         run: |
-          write-output "${{ needs.GetSnowInputs.outputs.TICKET }}"
+          write-output "${{ env.test }}"
+        env:
+          test: "${{ needs.GetSnowInputs.outputs.TICKET }}"
         
   PrintValues2:
     runs-on: [windows-latest]
