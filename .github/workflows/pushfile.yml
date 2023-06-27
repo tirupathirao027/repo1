@@ -286,3 +286,18 @@ jobs:
           write-output "${{ needs.GetSnowInputs.outputs.VCORE }}"
           write-output "${{ needs.GetSnowInputs.outputs.STORAGE_MAX_SIZE_IN_GB }}"
           write-output "${{ needs.GetSnowInputs.outputs.TICKET }}"
+  PrintValues1:
+    runs-on: [windows-latest]
+    needs: PrintValues
+    steps:
+      - name: print outputs
+        run: |
+          write-output "${{ needs.GetSnowInputs.outputs.TICKET }}"
+        
+  PrintValues2:
+    runs-on: [windows-latest]
+    needs: PrintValues1
+    steps:
+      - name: print outputs
+        run: |
+          write-output "${{ needs.GetSnowInputs.outputs.TICKET }}"      
